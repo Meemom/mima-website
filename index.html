@@ -136,60 +136,50 @@
       </div>
     </section>
 
-    <!-- ───────────── Projects ───────────── -->
-    <!-- To change a project's GitHub link, edit the href on its card. -->
-    <section class="section" id="projects">
+    <!-- ───────────── Projects ─────────────
+         An "album rail": each project is a record sleeve. To edit a project,
+         change its <li> below (title, description, GitHub link, cover colour
+         and cover pattern: dots, grid, rings, stripes, arch, checker, bars). -->
+    <section class="section section--wide" id="projects">
       <h2 class="section__title">Projects</h2>
-      <div class="cards cards--grid">
-        <article class="card project reveal">
-          <div class="project__head">
-            <h3 class="project__name">TinyINR</h3>
-            <a class="gh" href="https://github.com/m9ssah/TinyINR" target="_blank" rel="noopener" aria-label="TinyINR on GitHub"></a>
-          </div>
-          <p class="desc">A neural network training engine built from scratch, with custom GPU kernels, manual backpropagation, and adaptive sampling.</p>
-        </article>
-        <article class="card project reveal">
-          <div class="project__head">
-            <h3 class="project__name">GradientMesh</h3>
-            <a class="gh" href="https://github.com/m9ssah/microkernel" target="_blank" rel="noopener" aria-label="GradientMesh on GitHub"></a>
-          </div>
-          <p class="desc">A federated learning runtime connecting Linux and embedded workers through custom communication protocols.</p>
-        </article>
-        <article class="card project reveal">
-          <div class="project__head">
-            <h3 class="project__name">Food Map</h3>
-            <a class="gh" href="https://github.com/Meemom" target="_blank" rel="noopener" aria-label="Food Map on GitHub"></a>
-          </div>
-          <p class="desc">A social food map for discovering, rating, and sharing places to eat around campus.</p>
-        </article>
-        <article class="card project reveal">
-          <div class="project__head">
-            <h3 class="project__name">Warden</h3>
-            <a class="gh" href="https://github.com/Meemom" target="_blank" rel="noopener" aria-label="Warden on GitHub"></a>
-          </div>
-          <p class="desc">A multi-agent system for identifying supply chain vulnerabilities, with an interactive 3D stockroom visualization.</p>
-        </article>
-        <article class="card project reveal">
-          <div class="project__head">
-            <h3 class="project__name">Memory Palace</h3>
-            <a class="gh" href="https://github.com/m9ssah/Memory-Palace" target="_blank" rel="noopener" aria-label="Memory Palace on GitHub"></a>
-          </div>
-          <p class="desc">A dementia-care platform that transforms personal memories into interactive 3D worlds with guided AI conversations.</p>
-        </article>
-        <article class="card project reveal">
-          <div class="project__head">
-            <h3 class="project__name">GigIT</h3>
-            <a class="gh" href="https://github.com/Meemom/GigIT" target="_blank" rel="noopener" aria-label="GigIT on GitHub"></a>
-          </div>
-          <p class="desc">An AI-powered mortgage verification platform for automating document processing and validation.</p>
-        </article>
-        <article class="card project reveal">
-          <div class="project__head">
-            <h3 class="project__name">Healthz</h3>
-            <a class="gh" href="https://github.com/Meemom" target="_blank" rel="noopener" aria-label="Healthz on GitHub"></a>
-          </div>
-          <p class="desc">A nutrition and fitness tracker with food search, barcode scanning, and activity tracking.</p>
-        </article>
+      <div class="rail" id="rail" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Projects. Use the left and right arrow keys to browse.">
+        <ul class="rail__items">
+          <li class="rail__item" data-color="pink" data-motif="dots">
+            <h3>TinyINR</h3>
+            <p>A neural network training engine built from scratch, with custom GPU kernels, manual backpropagation, and adaptive sampling.</p>
+            <a href="https://github.com/m9ssah/TinyINR" target="_blank" rel="noopener">GitHub</a>
+          </li>
+          <li class="rail__item" data-color="mint" data-motif="grid">
+            <h3>GradientMesh</h3>
+            <p>A federated learning runtime connecting Linux and embedded workers through custom communication protocols.</p>
+            <a href="https://github.com/m9ssah/microkernel" target="_blank" rel="noopener">GitHub</a>
+          </li>
+          <li class="rail__item" data-color="yellow" data-motif="rings">
+            <h3>Food Map</h3>
+            <p>A social food map for discovering, rating, and sharing places to eat around campus.</p>
+            <a href="https://github.com/Meemom" target="_blank" rel="noopener">GitHub</a>
+          </li>
+          <li class="rail__item" data-color="lavender" data-motif="stripes">
+            <h3>Warden</h3>
+            <p>A multi-agent system for identifying supply chain vulnerabilities, with an interactive 3D stockroom visualization.</p>
+            <a href="https://github.com/Meemom" target="_blank" rel="noopener">GitHub</a>
+          </li>
+          <li class="rail__item" data-color="pink" data-motif="arch">
+            <h3>Memory Palace</h3>
+            <p>A dementia-care platform that transforms personal memories into interactive 3D worlds with guided AI conversations.</p>
+            <a href="https://github.com/m9ssah/Memory-Palace" target="_blank" rel="noopener">GitHub</a>
+          </li>
+          <li class="rail__item" data-color="mint" data-motif="checker">
+            <h3>GigIT</h3>
+            <p>An AI-powered mortgage verification platform for automating document processing and validation.</p>
+            <a href="https://github.com/Meemom/GigIT" target="_blank" rel="noopener">GitHub</a>
+          </li>
+          <li class="rail__item" data-color="yellow" data-motif="bars">
+            <h3>Healthz</h3>
+            <p>A nutrition and fitness tracker with food search, barcode scanning, and activity tracking.</p>
+            <a href="https://github.com/Meemom" target="_blank" rel="noopener">GitHub</a>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -240,5 +230,6 @@
 
   <script src="script.js"></script>
   <script src="waves.js"></script>
+  <script src="rail.js"></script>
 </body>
 </html>
