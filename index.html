@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jemima Silaen</title>
+  <meta name="description" content="Jemima (Mima) Silaen: CS Specialist + Stats student at the University of Toronto, working on applied ML, NLP and GPU programming." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Princess+Sofia&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ───────────── Top nav (appears after the title page) ───────────── -->
+  <nav class="nav" id="nav" aria-label="Sections">
+    <a class="nav__home" href="#top">Mima</a>
+    <div class="nav__links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+    </div>
+  </nav>
+
+  <!-- ───────────── Title page ───────────── -->
+  <header class="hero" id="top">
+    <div class="hero__paper" aria-hidden="true"></div>
+    <div class="hero__light" id="heroLight" aria-hidden="true"></div>
+    <div class="stars" id="stars" aria-hidden="true"></div>
+    <div class="hero__shade" id="heroShade" aria-hidden="true"></div>
+
+    <div class="hero__content" id="heroContent">
+      <img class="hero__photo" src="assets/profile.webp" alt="Portrait of Jemima Silaen" width="640" height="640" />
+      <div class="hero__text">
+      <h1 class="hero__name">Jemima Silaen</h1>
+
+      <ul class="socials" aria-label="Links">
+        <li>
+          <a href="https://www.linkedin.com/in/jemima-silaen-14477b20b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Meemom" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://devpost.com/jemima-silaen?ref_content=user-portfolio&amp;ref_feature=portfolio&amp;ref_medium=global-nav" target="_blank" rel="noopener" aria-label="Devpost">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.002 1.61 0 12.004 6.002 22.39h11.996L24 12.004 17.998 1.61zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.767-3.853z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:jemima.silaen@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+          </a>
+        </li>
+      </ul>
+      </div>
+    </div>
+
+    <a class="hero__scroll" href="#about" aria-label="Scroll to content">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ───────────── About ───────────── -->
+    <section class="section" id="about">
+      <h2 class="section__title">About</h2>
+      <div class="about reveal">
+        <p class="about__hello">Hello! I’m Jemima (but you can call me Mima) :)</p>
+        <p>I’m a CS Specialist + Stats undergraduate student at the University of Toronto. My interests vary across applied ML, NLP, GPU programming, cognitive science, and linguistics.</p>
+        <p>In my free time, I like to dance, play piano, edit videos, and watch films! My favorite movies include <em>All That Jazz</em>, <em>Sound of Music</em>, and <em>Synecdoche, New York</em>.</p>
+        <p>If you’d like to reach out for anything, email me at <a class="link" href="mailto:jemima.silaen@gmail.com">jemima.silaen@gmail.com</a>.</p>
+      </div>
+    </section>
+
+    <!-- ───────────── Experience ───────────── -->
+    <section class="section" id="experience">
+      <h2 class="section__title">Experience</h2>
+
+      <h3 class="subhead">Internships</h3>
+      <ol class="timeline">
+        <li class="timeline__item reveal">
+          <p class="role">Data Scientist <span class="at">· Intact</span></p>
+          <p class="desc">Building agentic pipelines for automated feature discovery and evaluation in insurance pricing models.</p>
+        </li>
+        <li class="timeline__item reveal">
+          <p class="role">Data Scientist <span class="at">· NTT Data</span></p>
+          <p class="desc">Developed a model explainability platform for analyzing and monitoring credit risk models.</p>
+        </li>
+        <li class="timeline__item reveal">
+          <p class="role">Cybersecurity Intern <span class="at">· Ernst &amp; Young</span></p>
+          <p class="desc">Worked on digital identity and cybersecurity risk analytics, synthesizing findings into Power BI dashboards for financial institutions.</p>
+        </li>
+      </ol>
+
+      <h3 class="subhead">Clubs</h3>
+      <div class="cards cards--two">
+        <article class="card reveal">
+          <p class="role">Developer</p>
+          <p class="at at--block">University of Toronto Machine Intelligence Student Team</p>
+          <ul class="tags">
+            <li class="tag">Sparse Attention</li>
+            <li class="tag">LLM Inference</li>
+            <li class="tag">Long-Context Modeling</li>
+            <li class="tag">Transformers</li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <p class="role">Deep Learning Engineer</p>
+          <p class="at at--block">University of Toronto Formula Racing</p>
+          <ul class="tags">
+            <li class="tag">Computer Vision</li>
+            <li class="tag">Active Perception</li>
+            <li class="tag">Imitation Learning</li>
+            <li class="tag">Knowledge Distillation</li>
+            <li class="tag">DAgger</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────────── Projects ───────────── -->
+    <!-- To change a project's GitHub link, edit the href on its card. -->
+    <section class="section" id="projects">
+      <h2 class="section__title">Projects</h2>
+      <div class="cards cards--grid">
+        <article class="card project reveal">
+          <div class="project__head">
+            <h3 class="project__name">TinyINR</h3>
+            <a class="gh" href="https://github.com/m9ssah/TinyINR" target="_blank" rel="noopener" aria-label="TinyINR on GitHub"></a>
+          </div>
+          <p class="desc">A neural network training engine built from scratch, with custom GPU kernels, manual backpropagation, and adaptive sampling.</p>
+        </article>
+        <article class="card project reveal">
+          <div class="project__head">
+            <h3 class="project__name">GradientMesh</h3>
+            <a class="gh" href="https://github.com/m9ssah/microkernel" target="_blank" rel="noopener" aria-label="GradientMesh on GitHub"></a>
+          </div>
+          <p class="desc">A federated learning runtime connecting Linux and embedded workers through custom communication protocols.</p>
+        </article>
+        <article class="card project reveal">
+          <div class="project__head">
+            <h3 class="project__name">Food Map</h3>
+            <a class="gh" href="https://github.com/Meemom" target="_blank" rel="noopener" aria-label="Food Map on GitHub"></a>
+          </div>
+          <p class="desc">A social food map for discovering, rating, and sharing places to eat around campus.</p>
+        </article>
+        <article class="card project reveal">
+          <div class="project__head">
+            <h3 class="project__name">Warden</h3>
+            <a class="gh" href="https://github.com/Meemom" target="_blank" rel="noopener" aria-label="Warden on GitHub"></a>
+          </div>
+          <p class="desc">A multi-agent system for identifying supply chain vulnerabilities, with an interactive 3D stockroom visualization.</p>
+        </article>
+        <article class="card project reveal">
+          <div class="project__head">
+            <h3 class="project__name">Memory Palace</h3>
+            <a class="gh" href="https://github.com/m9ssah/Memory-Palace" target="_blank" rel="noopener" aria-label="Memory Palace on GitHub"></a>
+          </div>
+          <p class="desc">A dementia-care platform that transforms personal memories into interactive 3D worlds with guided AI conversations.</p>
+        </article>
+        <article class="card project reveal">
+          <div class="project__head">
+            <h3 class="project__name">GigIT</h3>
+            <a class="gh" href="https://github.com/Meemom/GigIT" target="_blank" rel="noopener" aria-label="GigIT on GitHub"></a>
+          </div>
+          <p class="desc">An AI-powered mortgage verification platform for automating document processing and validation.</p>
+        </article>
+        <article class="card project reveal">
+          <div class="project__head">
+            <h3 class="project__name">Healthz</h3>
+            <a class="gh" href="https://github.com/Meemom" target="_blank" rel="noopener" aria-label="Healthz on GitHub"></a>
+          </div>
+          <p class="desc">A nutrition and fitness tracker with food search, barcode scanning, and activity tracking.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────────── Education ───────────── -->
+    <section class="section" id="education">
+      <h2 class="section__title">Education</h2>
+      <div class="cards cards--two">
+        <article class="card reveal">
+          <p class="role">University of Toronto</p>
+          <p class="desc">Bachelor of Science in Computer Science</p>
+          <p class="date">September 2024 – June 2028</p>
+        </article>
+        <article class="card reveal">
+          <p class="role">International Baccalaureate</p>
+          <p class="desc">45/45</p>
+          <p class="date">August 2021 – June 2023</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────────── Skills ───────────── -->
+    <section class="section" id="skills">
+      <h2 class="section__title">Skills</h2>
+
+      <ul class="legend" aria-label="Tag colours">
+        <li><span class="dot dot--ml"></span>ML &amp; AI</li>
+        <li><span class="dot dot--sys"></span>Systems &amp; GPU</li>
+        <li><span class="dot dot--data"></span>Data</li>
+        <li><span class="dot dot--web"></span>Web &amp; Infra</li>
+      </ul>
+
+      <div class="skills">
+        <div class="skills__group reveal">
+          <h3 class="subhead">Languages</h3>
+          <ul class="tags">
+            <li class="tag">Python</li><li class="tag">C/C++</li><li class="tag">TypeScript/JavaScript</li>
+            <li class="tag">Java</li><li class="tag">SQL</li><li class="tag">Bash/Shell</li>
+          </ul>
+        </div>
+        <div class="skills__group reveal">
+          <h3 class="subhead">ML &amp; Data</h3>
+          <ul class="tags">
+            <li class="tag">PySpark</li><li class="tag">PyTorch</li><li class="tag">CUDA</li><li class="tag">ONNX</li>
+            <li class="tag">scikit-learn</li><li class="tag">XGBoost</li><li class="tag">Transformers</li>
+            <li class="tag">NumPy</li><li class="tag">pandas</li><li class="tag">BERTopic</li>
+          </ul>
+        </div>
+        <div class="skills__group reveal">
+          <h3 class="subhead">Developer Tools</h3>
+          <ul class="tags">
+            <li class="tag">AWS</li><li class="tag">Databricks</li><li class="tag">GCP</li><li class="tag">FastAPI</li>
+            <li class="tag">PostgreSQL</li><li class="tag">Redis</li><li class="tag">Docker</li><li class="tag">Linux/Unix</li>
+            <li class="tag">Git</li><li class="tag">CMake</li><li class="tag">SLURM</li><li class="tag">Next.js</li>
+            <li class="tag">React</li><li class="tag">Flask</li><li class="tag">Supabase</li><li class="tag">Pydantic</li>
+            <li class="tag">Agile</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year">2026</span> Jemima Silaen</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
