@@ -1,3 +1,10 @@
+/* RetroByte by Igor Ovsyannykov (via 1001fonts.com), free for personal use */
+@font-face {
+  font-family: "RetroByte";
+  src: url("assets/fonts/RetroByte.ttf") format("truetype");
+  font-display: swap;
+}
+
 /* ───────────── Tokens ───────────── */
 :root {
   --pink: #FAC5F4;
@@ -16,6 +23,7 @@
   --max: 980px;
   --sans: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
   --script: "Princess Sofia", "Brush Script MT", cursive;
+  --title: "RetroByte", ui-monospace, monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -160,6 +168,15 @@ p { margin: 0; }
   letter-spacing: .01em;
 }
 
+.hero__tagline {
+  margin: -4px 0 20px;
+  font-family: var(--title);
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  letter-spacing: .04em;
+  color: var(--text);
+  opacity: .8;
+  -webkit-font-smoothing: none;
+}
 .socials { display: flex; gap: 14px; }
 .socials a {
   display: grid;
@@ -215,18 +232,13 @@ p { margin: 0; }
 .section__title {
   display: inline-block;
   margin: 0 0 32px;
-  font-size: clamp(1.7rem, 4vw, 2.2rem);
-  font-weight: 600;
-  letter-spacing: -.01em;
+  font-family: var(--title);
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: .02em;
   position: relative;
-}
-.section__title::after {
-  content: "";
-  display: block;
-  height: 4px;
-  margin-top: 6px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, var(--pink), var(--lavender), var(--mint), var(--yellow));
+  -webkit-font-smoothing: none;   /* keep the pixel edges crisp */
 }
 .subhead {
   margin: 36px 0 16px;
@@ -264,6 +276,7 @@ p { margin: 0; }
 .at--block { font-size: .92rem; margin-top: 2px; }
 .desc { color: #C9C9C9; font-size: .95rem; margin-top: 4px; }
 .date { color: var(--muted); font-size: .85rem; margin-top: 10px; }
+.when { color: var(--text); opacity: .5; font-size: .85rem; margin-top: 1px; }
 
 /* Timeline */
 .timeline { position: relative; display: grid; gap: 26px; padding-left: 26px; }
@@ -321,25 +334,48 @@ p { margin: 0; }
 .gh:hover { color: var(--base); background: var(--accent, var(--pink)); border-color: transparent; }
 
 /* ───────────── Tags ───────────── */
-.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+/* Highlighter style: each phrase starts blurred and dim, sharpens, then a
+   pastel marker swipes in behind it from the left. The text turns dark at
+   exactly the same spot as the swipe (a matching gradient clipped to the
+   letters), so it always stays readable. Triggered by script.js. */
+.tags { display: flex; flex-wrap: wrap; gap: 10px 8px; }
 .tag {
-  --c: var(--lavender);
   --rgb: 230, 209, 255;
-  font-size: .8rem;
+  --sweep: 1s cubic-bezier(.65, 0, .35, 1) calc(.4s + var(--i, 0) * 45ms);
+  font-family: "Outfit", var(--sans);
   font-weight: 400;
-  line-height: 1;
-  padding: 7px 12px;
-  border-radius: 999px;
-  color: var(--c);
-  background: rgba(var(--rgb), .1);
-  border: 1px solid rgba(var(--rgb), .35);
-  transition: background .2s;
+  font-size: .95rem;
+  line-height: 1.3;
+  border-radius: 3px;
+  /* the marker */
+  background: linear-gradient(rgb(var(--rgb)), rgb(var(--rgb))) no-repeat left center / 0% 100%;
+  filter: blur(8px);
+  opacity: .3;
+  transition:
+    filter .8s ease calc(var(--i, 0) * 45ms),
+    opacity .8s ease calc(var(--i, 0) * 45ms),
+    background-size var(--sweep);
 }
-.tag:hover { background: rgba(var(--rgb), .2); }
-.tag--ml   { --c: var(--pink);     --rgb: 250, 197, 244; }
-.tag--sys  { --c: var(--mint);     --rgb: 192, 237, 230; }
-.tag--data { --c: var(--yellow);   --rgb: 255, 253, 201; }
-.tag--web  { --c: var(--lavender); --rgb: 230, 209, 255; }
+.tag__text {                       /* the letters: light, turning dark under the marker */
+  display: block;
+  padding: 1px 6px;
+  color: transparent;
+  background:
+    linear-gradient(var(--base), var(--base)) no-repeat left center / 0% 100%,
+    linear-gradient(var(--text), var(--text));
+  background-origin: border-box;
+  -webkit-background-clip: text;
+          background-clip: text;
+  transition: background-size var(--sweep);
+}
+.tags.is-lit .tag,
+.no-js .tag { filter: none; opacity: 1; background-size: 100% 100%; }
+.tags.is-lit .tag__text,
+.no-js .tag__text { background-size: 100% 100%, auto; }
+.tag--ml   { --rgb: 250, 197, 244; }
+.tag--sys  { --rgb: 192, 237, 230; }
+.tag--data { --rgb: 255, 253, 201; }
+.tag--web  { --rgb: 230, 209, 255; }
 
 .legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: -8px 0 28px; font-size: .85rem; color: var(--muted); }
 .legend li { display: flex; align-items: center; gap: 8px; }
@@ -380,4 +416,6 @@ p { margin: 0; }
   .hero__scroll { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .card, .card:hover { transition: none; transform: none; }
+  .tag { transition: none; filter: none; opacity: 1; background-size: 100% 100%; }
+  .tag__text { transition: none; background-size: 100% 100%, auto; }
 }
