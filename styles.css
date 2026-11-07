@@ -11,8 +11,6 @@
   --border: #353535;
   --text: #EDEDED;
   --muted: #A3A3A3;
-  --ink: #4A3540;            /* dark text on the pink title page */
-  --paper: #F8BCD9;          /* title page pink */
 
   --radius: 16px;
   --max: 980px;
@@ -46,21 +44,10 @@ p { margin: 0; }
   display: grid;
   place-items: center;
   overflow: hidden;
-  background-color: var(--paper);
+  background-color: var(--base);
   isolation: isolate;
 }
 
-/* soft fade into the dark base at the bottom + darkening while scrolling */
-.hero::after {
-  content: "";
-  position: absolute; left: 0; right: 0; bottom: 0;
-  height: 22vh;
-  background: linear-gradient(to bottom,
-    rgba(31,31,31,0) 0%, rgba(31,31,31,.08) 25%, rgba(31,31,31,.3) 50%,
-    rgba(31,31,31,.65) 75%, var(--base) 100%);
-  z-index: -1;
-  pointer-events: none;
-}
 .hero__shade {
   position: absolute; inset: 0;
   background: var(--base);
@@ -71,7 +58,7 @@ p { margin: 0; }
 
 .hero__content {
   display: flex;
-  flex-direction: row-reverse;     /* photo sits to the right of the name */
+  flex-direction: row;             /* photo on the left, name on the right */
   align-items: center;
   justify-content: center;
   gap: clamp(28px, 5vw, 64px);
@@ -87,8 +74,8 @@ p { margin: 0; }
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 50%;
-  border: 5px solid rgba(255,255,255,.75);
-  box-shadow: 0 18px 50px rgba(59,44,53,.22);
+  border: 3px solid var(--pink);
+  box-shadow: 0 0 0 8px rgba(250,197,244,.08), 0 18px 50px rgba(0,0,0,.45);
 }
 .hero__name {
   margin: 18px 0 10px;
@@ -96,7 +83,7 @@ p { margin: 0; }
   font-weight: 400;
   font-size: clamp(3.2rem, 11vw, 6.5rem);
   line-height: 1.15;
-  color: var(--ink);
+  color: var(--pink);
   letter-spacing: .01em;
 }
 
@@ -106,14 +93,12 @@ p { margin: 0; }
   place-items: center;
   width: 48px; height: 48px;
   border-radius: 50%;
-  color: var(--ink);
-  background: rgba(255,255,255,.55);
-  border: 1px solid rgba(255,255,255,.8);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
   transition: transform .2s ease, background .2s ease, color .2s ease;
 }
-.socials a:hover { transform: translateY(-3px) scale(1.06); background: var(--ink); color: #fff; }
+.socials a:hover { transform: translateY(-3px) scale(1.06); background: var(--pink); color: var(--base); border-color: var(--pink); }
 .socials svg { width: 21px; height: 21px; fill: currentColor; }
 .socials a[aria-label="Email"] svg { fill: none; }
 
