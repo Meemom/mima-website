@@ -30,6 +30,23 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const hero = document.querySelector(".hero");
 
+/* ───────────── Halftone: dots swell around the cursor ───────────── */
+const halftone = document.getElementById("halftone");
+if (halftone && window.matchMedia("(hover: hover)").matches) {
+  let raf = 0, mx = 0, my = 0;
+  hero.addEventListener("pointermove", (e) => {
+    const r = hero.getBoundingClientRect();
+    mx = e.clientX - r.left; my = e.clientY - r.top;
+    halftone.classList.add("is-pointer");
+    if (!raf) raf = requestAnimationFrame(() => {
+      halftone.style.setProperty("--mx", `${mx}px`);
+      halftone.style.setProperty("--my", `${my}px`);
+      raf = 0;
+    });
+  });
+  hero.addEventListener("pointerleave", () => halftone.classList.remove("is-pointer"));
+}
+
 /* ───────────── Scroll: fade title page into the dark base ───────────── */
 const shade = document.getElementById("heroShade");
 const content = document.getElementById("heroContent");
@@ -65,3 +82,49 @@ const sectionSpy = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: "-45% 0px -50% 0px" });
 document.querySelectorAll("main .section").forEach((s) => sectionSpy.observe(s));
+
+
+/* ───────────── Typewriter greeting ─────────────
+   Types the About greeting once it scrolls into view, at a natural uneven
+   pace, with a short pause after "Jemima" like someone deciding to add more. */
+(function typewriter() {
+  const el = document.getElementById("typewriter");
+  if (!el) return;
+  const text = el.textContent;
+  const pauseAfter = text.indexOf("Jemima") + "Jemima".length;
+
+  el.textContent = "";
+  const typed = document.createElement("span");
+  const cursor = document.createElement("span");
+  const rest = document.createElement("span");
+  typed.setAttribute("aria-hidden", "true");
+  rest.setAttribute("aria-hidden", "true");
+  cursor.className = "tw__cursor";
+  rest.className = "tw__rest";
+  rest.textContent = text;
+  el.append(typed, cursor, rest);
+
+  if (reduceMotion) { typed.textContent = text; rest.textContent = ""; return; }
+
+  let i = 0;
+  function step() {
+    i++;
+    typed.textContent = text.slice(0, i);
+    rest.textContent = text.slice(i);
+    if (i >= text.length) { el.classList.remove("tw--typing"); return; }
+    const ch = text[i - 1];
+    let delay = 45 + Math.random() * 55;                  // uneven keystrokes
+    if (ch === " ") delay += 30;
+    if (",.!".includes(ch)) delay += 260;
+    if (i === pauseAfter) { delay += 650; el.classList.remove("tw--typing"); }
+    else el.classList.add("tw--typing");
+    setTimeout(step, delay);
+  }
+
+  new IntersectionObserver((entries, obs) => {
+    if (entries[0].isIntersecting) {
+      obs.disconnect();
+      setTimeout(step, 500);                              // let the section fade in first
+    }
+  }, { threshold: 0.6 }).observe(el);
+})();

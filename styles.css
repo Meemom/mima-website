@@ -48,6 +48,79 @@ p { margin: 0; }
   isolation: isolate;
 }
 
+/* ───────────── Halftone background ─────────────
+   How it works: a grid of soft white→black cells is multiplied by a slowly
+   drifting grey "light field". A strong contrast filter snaps each cell into
+   a hard dot, big where the field is bright and gone where it's dark. The
+   white-on-black result is tinted pink and screened onto the dark page.
+   Knobs: --ht-size (grid spacing), --ht-color, --ht-strength, --ht-speed. */
+.hero {
+  --ht-size: 14px;
+  --ht-color: var(--pink);
+  --ht-strength: .55;     /* how bright the dots are on the dark page */
+  --ht-speed: 1;          /* 1 = one full drift cycle every 24s */
+}
+.halftone {
+  position: absolute; inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  isolation: isolate;
+  mix-blend-mode: screen;
+  opacity: var(--ht-strength);
+  pointer-events: none;
+  /* clear the dots behind the name and photo, and toward the bottom */
+  -webkit-mask: radial-gradient(ellipse 46% 34% at 50% 50%, transparent 35%, #000 100%),
+                linear-gradient(#000 70%, transparent);
+  -webkit-mask-composite: source-in;
+          mask: radial-gradient(ellipse 46% 34% at 50% 50%, transparent 35%, #000 100%) intersect,
+                linear-gradient(#000 70%, transparent);
+}
+.halftone__ink {
+  position: absolute; inset: 0;
+  background: #000;
+  overflow: hidden;
+  filter: brightness(1.25) contrast(28);
+}
+.halftone__field {
+  position: absolute;
+  left: -50%; top: -50%;
+  width: 200%; height: 200%;
+  background:
+    radial-gradient(circle at 32% 38%, rgba(255,255,255,.95), rgba(255,255,255,0) 18%),
+    radial-gradient(circle at 68% 62%, rgba(255,255,255,.85), rgba(255,255,255,0) 20%),
+    repeating-radial-gradient(circle at 50% 50%, #8a8a8a 0, #2a2a2a 110px, #8a8a8a 220px),
+    repeating-linear-gradient(35deg, #5a5a5a 0, #1c1c1c 160px, #5a5a5a 320px);
+  background-blend-mode: screen, screen, screen, normal;
+  animation: ht-drift calc(24s / var(--ht-speed)) ease-in-out infinite alternate;
+  will-change: transform;
+}
+/* a pool of light that follows the cursor, so dots swell around it */
+.halftone__spot {
+  position: absolute; inset: 0;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%),
+              rgba(255,255,255,.75), rgba(255,255,255,0) 70%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.halftone.is-pointer .halftone__spot { opacity: 1; }
+.halftone__grid {
+  position: absolute; inset: 0;
+  background: radial-gradient(closest-side, #fff, #000) 0 0 / var(--ht-size) var(--ht-size);
+  mix-blend-mode: multiply;
+}
+.halftone__tint {
+  position: absolute; inset: 0;
+  background: var(--ht-color);
+  mix-blend-mode: multiply;
+}
+@keyframes ht-drift {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+  50%  { transform: translate(-8%, 5%) rotate(12deg) scale(1.08); }
+  100% { transform: translate(6%, -6%) rotate(-10deg) scale(.96); }
+}
+@media (forced-colors: active) { .halftone { display: none; } }
+
 .hero__shade {
   position: absolute; inset: 0;
   background: var(--base);
@@ -168,6 +241,19 @@ p { margin: 0; }
 /* About */
 .about { max-width: 680px; display: grid; gap: 14px; font-size: 1.05rem; }
 .about__hello { font-size: 1.35rem; font-weight: 500; color: var(--pink); }
+/* typewriter: the untyped part stays in place but invisible, so nothing shifts */
+.tw__rest { visibility: hidden; }
+.tw__cursor {
+  display: inline-block;
+  width: 2px; height: 1.1em;
+  margin: 0 1px 0 2px;
+  vertical-align: -0.15em;
+  background: var(--pink);
+  border-radius: 1px;
+  animation: tw-blink 1s steps(1) infinite;
+}
+.tw--typing .tw__cursor { animation: none; }   /* solid while typing, blinks when idle */
+@keyframes tw-blink { 50% { opacity: 0; } }
 .about em { font-style: italic; color: var(--text); }
 .link { color: var(--mint); text-decoration: none; border-bottom: 1px solid rgba(192,237,230,.4); transition: border-color .2s; }
 .link:hover { border-color: var(--mint); }
@@ -290,6 +376,7 @@ p { margin: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .halftone__field { animation: none; }
   .hero__scroll { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .card, .card:hover { transition: none; transform: none; }

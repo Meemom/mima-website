@@ -29,6 +29,14 @@
 
   <!-- ───────────── Title page ───────────── -->
   <header class="hero" id="top">
+    <div class="halftone" id="halftone" aria-hidden="true">
+      <div class="halftone__ink">
+        <div class="halftone__field"></div>
+        <div class="halftone__spot"></div>
+        <div class="halftone__grid"></div>
+      </div>
+      <div class="halftone__tint"></div>
+    </div>
     <div class="hero__shade" id="heroShade" aria-hidden="true"></div>
 
     <div class="hero__content" id="heroContent">
@@ -72,7 +80,7 @@
     <section class="section" id="about">
       <h2 class="section__title">About</h2>
       <div class="about reveal">
-        <p class="about__hello">Hello! I’m Jemima (but you can call me Mima) :)</p>
+        <p class="about__hello" id="typewriter" aria-label="Hello! I’m Jemima (but you can call me Mima) :)">Hello! I’m Jemima (but you can call me Mima) :)</p>
         <p>I’m a CS Specialist + Stats undergraduate student at the University of Toronto. My interests vary across applied ML, NLP, GPU programming, cognitive science, and linguistics.</p>
         <p>In my free time, I like to dance, play piano, edit videos, and watch films! My favorite movies include <em>All That Jazz</em>, <em>Sound of Music</em>, and <em>Synecdoche, New York</em>.</p>
         <p>If you’d like to reach out for anything, email me at <a class="link" href="mailto:jemima.silaen@gmail.com">jemima.silaen@gmail.com</a>.</p>
