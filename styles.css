@@ -166,7 +166,7 @@ p { margin: 0; }
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1;
+  aspect-ratio: 960 / 1177;
   object-fit: cover;
   border-radius: 2px;
   box-shadow:
@@ -186,7 +186,7 @@ p { margin: 0; }
   position: absolute;
   width: 42%;
   height: auto;
-  top: -13%;
+  top: -10.6%;
   left: -10%;
   transform: rotate(0deg);
   transform-origin: 20% 10%;
