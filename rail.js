@@ -43,6 +43,7 @@ const RAIL = {
         <span class="cover__no">${d.no}</span>
         <span class="cover__artist">jemima silaen</span>
         <span class="cover__title"></span>
+        <span class="cover__open" aria-hidden="true">↗</span>
       </div>`;
     card.querySelector(".cover__title").textContent = d.title;
     stage.appendChild(card);
@@ -55,9 +56,7 @@ const RAIL = {
   caption.innerHTML = `
     <h3 class="rail__title"></h3>
     <p class="rail__desc"></p>
-    <div class="rail__actions">
-      <a class="rail__gh" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
-    </div>`;
+`;
 
   const ruler = document.createElement("div");
   ruler.className = "rail__ruler";
@@ -105,9 +104,6 @@ const RAIL = {
     void caption.offsetWidth;                         // restart the fade
     caption.querySelector(".rail__title").textContent = d.title;
     caption.querySelector(".rail__desc").textContent = d.desc;
-    const gh = caption.querySelector(".rail__gh");
-    gh.href = d.href;
-    gh.setAttribute("aria-label", `${d.title} on GitHub`);
     caption.classList.add("is-in");
     ticks.forEach((t, i) => t.classList.toggle("is-active", i === active));
   }

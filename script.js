@@ -6,11 +6,11 @@ document.documentElement.classList.remove("no-js");
 const TAG_CATEGORY = {
   // ML & AI
   "PyTorch": "ml", "Transformers": "ml", "scikit-learn": "ml", "XGBoost": "ml", "BERTopic": "ml",
-  "Sparse Attention": "ml", "Long-Context Modeling": "ml", "Computer Vision": "ml",
+  "Sparse Attention": "ml", "LLM Inference": "ml", "Long-Context Modeling": "ml", "Computer Vision": "ml",
   "Active Perception": "ml", "Imitation Learning": "ml", "Knowledge Distillation": "ml", "DAgger": "ml",
   // Systems & GPU
   "C/C++": "sys", "Java": "sys", "Bash/Shell": "sys", "CUDA": "sys", "ONNX": "sys",
-  "Linux/Unix": "sys", "CMake": "sys", "SLURM": "sys", "LLM Inference": "sys",
+  "Linux/Unix": "sys", "CMake": "sys", "SLURM": "sys",
   // Data
   "Python": "data", "SQL": "data", "PySpark": "data", "NumPy": "data", "pandas": "data",
   "Databricks": "data", "PostgreSQL": "data",
