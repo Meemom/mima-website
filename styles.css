@@ -227,21 +227,6 @@ p { margin: 0; }
 }
 .socials a:hover { transform: translateY(-3px) scale(1.06); background: var(--pink); color: var(--base); border-color: var(--pink); }
 .socials svg { width: 21px; height: 21px; fill: currentColor; }
-.socials .socials__resume a {
-  width: auto;
-  padding: 0 18px 0 20px;
-  border-radius: 999px;
-  gap: 8px;
-  display: inline-flex; align-items: center;
-  font-family: var(--title);
-  font-size: 1.15rem;
-  letter-spacing: .03em;
-  text-decoration: none;
-  color: var(--pink);
-  border-color: rgba(250,197,244,.5);
-  -webkit-font-smoothing: none;
-}
-.socials .socials__resume a:hover { color: var(--base); background: var(--pink); border-color: var(--pink); }
 .socials a[aria-label="Email"] svg { fill: none; }
 
 .hero__scroll {
