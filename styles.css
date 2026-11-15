@@ -314,6 +314,9 @@ p { margin: 0; }
 .desc { color: #C9C9C9; font-size: .95rem; margin-top: 4px; }
 .date { color: var(--muted); font-size: .85rem; margin-top: 10px; }
 .when { color: var(--text); opacity: .5; font-size: .85rem; margin-top: 1px; }
+.bullets { margin-top: 8px; display: grid; gap: 6px; max-width: 760px; }
+.bullets li { position: relative; padding-left: 18px; color: #C9C9C9; font-size: .95rem; line-height: 1.6; }
+.bullets li::before { content: ""; position: absolute; left: 2px; top: .72em; width: 7px; height: 2px; border-radius: 2px; background: var(--pink); opacity: .8; }
 
 /* Timeline */
 .timeline { position: relative; display: grid; gap: 26px; padding-left: 26px; }
